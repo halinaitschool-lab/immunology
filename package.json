@@ -9,7 +9,8 @@
     "scripts": {
     "build:site": "npm run build -w nextjs-immunology",
     "build:studio": "npm run build -w studio-immunology",
-    "build:cloudflare": "npm run build:site",
-    "build:production": "npm run build:cloudflare"
+    "build:cloudflare": "npm run cf:build -w nextjs-immunology",
+    "build:production": "npm run build:cloudflare",
+    "deploy:cloudflare": "npm run cf:deploy -w nextjs-immunology"
     }
   }

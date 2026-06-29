@@ -1,3 +1,5 @@
 node_modules
 nextjs-immunology/package-lock.json
 studio-immunology/package-lock.json
+nextjs-immunology/.open-next
+nextjs-immunology/.wrangler
