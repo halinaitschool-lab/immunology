@@ -6,5 +6,8 @@ export default defineCliConfig({
     dataset: "production",
   },
   studioHost: "immunology",
-  autoUpdates: true,
+  deployment: {
+    appId: "c9u4szxm2k680hoeavzdh7xi",
+    autoUpdates: true,
+  },
 });
