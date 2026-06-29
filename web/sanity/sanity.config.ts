@@ -12,7 +12,7 @@ export default defineConfig({
   title: "Immunology Studio",
   projectId: "6ug4wlfa",
   dataset: "production",
-  basePath: "/studio",
+  basePath: "/",
   plugins: [structureTool()],
   schema: {
     types: [lectureSchema, guideSchema, articleSchema, conferenceSchema],

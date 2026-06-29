@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["sanity", "next-sanity"],
+  transpilePackages: ["next-sanity"],
   images: {
     remotePatterns: [
       {
