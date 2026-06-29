@@ -28,6 +28,12 @@
     "prettier": "^3.5",
     "typescript": "^5.8"
   },
+  "optionalDependencies": {
+    "@rollup/rollup-darwin-arm64": "4.61.0",
+    "@rollup/rollup-darwin-x64": "4.61.0",
+    "@rollup/rollup-linux-x64-gnu": "4.61.0",
+    "@rollup/rollup-linux-x64-musl": "4.61.0"
+  },
   "prettier": {
     "bracketSpacing": false,
     "printWidth": 100,

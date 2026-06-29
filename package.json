@@ -9,6 +9,7 @@
     "scripts": {
     "build:site": "npm run build -w nextjs-immunology",
     "build:studio": "npm run build -w studio-immunology",
+    "build:cloudflare": "npm run build:site",
     "build:production": "npm run build:site && npm run build:studio && npx shx mkdir -p nextjs-immunology/dist/studio && npx shx cp -r studio-immunology/dist/* nextjs-immunology/dist/studio/ && npx shx cp nextjs-immunology/dist/index.html nextjs-immunology/dist/404.html && npx shx cp nextjs-immunology/dist/studio/index.html nextjs-immunology/dist/studio/404.html && npx shx mkdir -p nextjs-immunology/dist/static && npx shx cp -r studio-immunology/dist/static/* nextjs-immunology/dist/static/"
     }
   }
