@@ -1,16 +1,9 @@
 {
-    "name": "immunology",
-    "version": "1.0.0",
-    "private": true,
-    "workspaces": [
-      "nextjs-immunology",
-      "studio-immunology"
-    ],
-    "scripts": {
-    "build:site": "npm run build -w nextjs-immunology",
-    "build:studio": "npm run build -w studio-immunology",
-    "build:cloudflare": "npm run cf:build -w nextjs-immunology",
-    "build:production": "npm run build:cloudflare",
-    "deploy:cloudflare": "npm run cf:deploy -w nextjs-immunology"
-    }
+  "name": "immunology",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix web",
+    "build": "npm run build --prefix web",
+    "start": "npm run start --prefix web"
   }
+}
