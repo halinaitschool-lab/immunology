@@ -132,26 +132,27 @@ export function LandingPage({ initialLocale = "uk" }: { initialLocale?: Locale }
               <span className="fp-dot dot-green" />
               {t.hero.pillOnline}
             </div>
-            <div className="floating-pill fp2">
-              <i
-                className="fa-solid fa-shield-halved"
-                style={{ color: "var(--amber)", fontSize: "0.75rem" }}
-              />
-              {t.hero.pillEvidence}
-            </div>
-            <div className="floating-pill fp3">
-              <span className="fp-dot dot-amber" />
-              {t.hero.pillChildren}
-            </div>
-
             <div className="hero-photo-wrap">
-              <Image
-                src="/lilya.jpg"
-                alt={t.hero.doctorName}
-                width={1080}
-                height={1080}
-                priority
-              />
+              <div className="floating-pill fp2">
+                <i
+                  className="fa-solid fa-shield-halved"
+                  style={{ color: "var(--amber)", fontSize: "0.75rem" }}
+                />
+                {t.hero.pillEvidence}
+              </div>
+              <div className="floating-pill fp3">
+                <span className="fp-dot dot-amber" />
+                {t.hero.pillChildren}
+              </div>
+              <div className="hero-photo-frame">
+                <Image
+                  src="/lilya.jpg"
+                  alt={t.hero.doctorName}
+                  width={1080}
+                  height={1080}
+                  priority
+                />
+              </div>
             </div>
 
             <div className="doctor-name">{t.hero.doctorName}</div>

@@ -1,0 +1,1 @@
+import{renderStudio as e}from"sanity";e(document.getElementById(`sanity`),{missingConfigFile:!0},{reactStrictMode:!1,basePath:`/`});
