@@ -7,11 +7,14 @@ import { landingContent, type Locale } from "@/lib/landing-content";
 import { LOCALE_STORAGE_KEY } from "@/lib/locale";
 import { parseAccent } from "@/lib/parse-accent";
 import { NavDropdown } from "./NavDropdown";
+import { MobileNav } from "./MobileNav";
 import { SituationSection } from "./sections/SituationSection";
 import { useReveal } from "./useReveal";
 import "@/styles/landing.css";
 
 const TELEGRAM = "https://t.me/Lilyanest28";
+const INSTAGRAM = "https://www.instagram.com/likar_liliia.nesterovska/";
+const DEVELOPER_URL = "https://hit.hlusik.workers.dev/";
 
 const BADGE_ICONS = [
   "fa-graduation-cap",
@@ -45,6 +48,7 @@ const VALUE_ICONS = [
 export function LandingPage({ initialLocale = "uk" }: { initialLocale?: Locale }) {
   const [locale, setLocale] = useState<Locale>(initialLocale);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
   const t = landingContent[locale];
 
   const setLocalePersisted = (next: Locale) => {
@@ -60,6 +64,26 @@ export function LandingPage({ initialLocale = "uk" }: { initialLocale?: Locale }
   }, []);
 
   useReveal([locale]);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <div className="landing-page">
@@ -97,16 +121,34 @@ export function LandingPage({ initialLocale = "uk" }: { initialLocale?: Locale }
               EN
             </button>
           </div>
-          <a href="#cta" className="btn-nav nav-mobile-cta">
-            {t.nav.cta}
-          </a>
           <a href="#cta" className="btn-nav">
             {t.nav.cta}
           </a>
+          <button
+            type="button"
+            className={`nav-hamburger${menuOpen ? " open" : ""}`}
+            onClick={() => setMenuOpen((value) => !value)}
+            aria-label={menuOpen ? t.nav.menuClose : t.nav.menuOpen}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav-panel"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
         </div>
       </nav>
 
+      <MobileNav
+        open={menuOpen}
+        onClose={closeMenu}
+        locale={locale}
+        onLocaleChange={setLocalePersisted}
+        nav={t.nav}
+      />
+
       <section className="hero">
+        <div className="hero-mobile-bg" aria-hidden="true" />
         <div className="hero-text">
           <div className="hero-badge">
             <i className="fa-solid fa-circle-dot" />
@@ -538,11 +580,8 @@ export function LandingPage({ initialLocale = "uk" }: { initialLocale?: Locale }
               <a href={TELEGRAM} target="_blank" rel="noreferrer" className="soc-icon" title="Telegram">
                 <i className="fa-brands fa-telegram" />
               </a>
-              <a href="#" className="soc-icon" title="Instagram">
+              <a href={INSTAGRAM} target="_blank" rel="noreferrer" className="soc-icon" title="Instagram">
                 <i className="fa-brands fa-instagram" />
-              </a>
-              <a href="#" className="soc-icon" title="Facebook">
-                <i className="fa-brands fa-facebook-f" />
               </a>
             </div>
           </div>
@@ -566,6 +605,12 @@ export function LandingPage({ initialLocale = "uk" }: { initialLocale?: Locale }
         <div className="footer-bottom">
           <span>{t.footer.copyright}</span>
           <span>{t.footer.tag}</span>
+          <span className="footer-dev">
+            {t.footer.developerCredit.prefix}{" "}
+            <a href={DEVELOPER_URL} target="_blank" rel="noreferrer">
+              {t.footer.developerCredit.name}
+            </a>
+          </span>
         </div>
       </footer>
     </div>

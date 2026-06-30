@@ -14,6 +14,8 @@ export type LandingContent = {
     about: string;
     contacts: string;
     cta: string;
+    menuOpen: string;
+    menuClose: string;
   };
   hero: {
     badge: string;
@@ -111,6 +113,7 @@ export type LandingContent = {
     contactsLinks: string[];
     copyright: string;
     tag: string;
+    developerCredit: { prefix: string; name: string };
   };
 };
 
@@ -162,6 +165,8 @@ export const landingContent: Record<Locale, LandingContent> = {
       about: "Про мене",
       contacts: "Контакти",
       cta: "Запис на консультацію",
+      menuOpen: "Відкрити меню",
+      menuClose: "Закрити меню",
     },
     hero: {
       badge: "Алергологія · Імунологія · Діти та дорослі",
@@ -443,6 +448,7 @@ export const landingContent: Record<Locale, LandingContent> = {
       ],
       copyright: "© 2026 Ліля Нестеровська. Алергологія та імунологія.",
       tag: "Для дітей та дорослих",
+      developerCredit: { prefix: "Сайт розроблено", name: "HIT LAB" },
     },
   },
   en: {
@@ -488,6 +494,8 @@ export const landingContent: Record<Locale, LandingContent> = {
       about: "About me",
       contacts: "Contact",
       cta: "Book a consultation",
+      menuOpen: "Open menu",
+      menuClose: "Close menu",
     },
     hero: {
       badge: "Allergology · Immunology · Children & adults",
@@ -769,6 +777,7 @@ export const landingContent: Record<Locale, LandingContent> = {
       ],
       copyright: "© 2026 Lilia Nesterovska. Allergology & immunology.",
       tag: "For children and adults",
+      developerCredit: { prefix: "Site by", name: "HIT LAB" },
     },
   },
 };
